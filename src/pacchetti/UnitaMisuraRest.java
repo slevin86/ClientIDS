@@ -13,7 +13,7 @@ import com.sun.jersey.api.client.WebResource;
  * [rest.unitamisura]<br>
  * USAGE:
  * <pre>
- *        NewJerseyClient client = new NewJerseyClient();
+ *        UnitaMisuraRest client = new UnitaMisuraRest();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -21,12 +21,12 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Davide
  */
-public class NewJerseyClient {
+public class UnitaMisuraRest {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/IDS/webresources";
+    private static final String BASE_URI = "http://localhost:8080/ServerIDS/webresources";
 
-    public NewJerseyClient() {
+    public UnitaMisuraRest() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
         client = Client.create(config);
         webResource = client.resource(BASE_URI).path("rest.unitamisura");

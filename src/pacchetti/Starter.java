@@ -14,8 +14,7 @@ public class Starter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NewJDialog ciao = new NewJDialog(null, true);
-        ciao.setVisible(true);
-        
+        NewJDialog dialogo = new NewJDialog(null, true);
+        dialogo.setVisible(true);
     }
 }
