@@ -61,7 +61,7 @@ public class Login extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         UnitaMisuraRest cliente = new UnitaMisuraRest();
         String jasone = new String();
-        jasone = "[{\"nomeUnitaMisura\":\"terza\"}]";
+        jasone = "{\"idUnitaMisura\":2,\"nomeUnitaMisura\":\"seconda\"}";
         cliente.create_JSON(jasone);
     }//GEN-LAST:event_jButton1ActionPerformed
 
