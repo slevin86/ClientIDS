@@ -29,14 +29,22 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jp_schede_tecniche = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jl_cerca = new javax.swing.JLabel();
+        jtf_cerca = new javax.swing.JTextField();
         jp_linee_di_prodotto = new javax.swing.JPanel();
-        jToolBar2 = new javax.swing.JToolBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jToolBar3 = new javax.swing.JToolBar();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jp_catalogo = new javax.swing.JPanel();
         jp_storico_operazioni = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -45,6 +53,18 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jp_note = new javax.swing.JPanel();
 
         jToolBar1.setRollover(true);
+
+        jLabel2.setText("Nuova ST ");
+        jToolBar1.add(jLabel2);
+
+        jLabel3.setText("Modifica ST ");
+        jToolBar1.add(jLabel3);
+
+        jLabel4.setText("Duplica ");
+        jToolBar1.add(jLabel4);
+
+        jLabel1.setText("Elimina ST selezionate");
+        jToolBar1.add(jLabel1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,7 +78,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -67,9 +87,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jLabel1.setText("Cerca");
-
-        jTextField1.setText("jTextField1");
+        jl_cerca.setText("Cerca");
 
         javax.swing.GroupLayout jp_schede_tecnicheLayout = new javax.swing.GroupLayout(jp_schede_tecniche);
         jp_schede_tecniche.setLayout(jp_schede_tecnicheLayout);
@@ -80,12 +98,11 @@ public class JP_Modelleria extends javax.swing.JPanel {
                 .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jl_cerca)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 132, Short.MAX_VALUE)))
+                        .addComponent(jtf_cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jp_schede_tecnicheLayout.setVerticalGroup(
@@ -95,8 +112,8 @@ public class JP_Modelleria extends javax.swing.JPanel {
                 .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jl_cerca)
+                        .addComponent(jtf_cerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -104,20 +121,40 @@ public class JP_Modelleria extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Schede Tecniche", jp_schede_tecniche);
 
-        jToolBar2.setRollover(true);
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nome", "Qtà ST", "Sel"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
+
+        jToolBar3.setRollover(true);
+
+        jLabel5.setText("Nuova LdP ");
+        jToolBar3.add(jLabel5);
+
+        jLabel6.setText("Modifica Ldp ");
+        jToolBar3.add(jLabel6);
+
+        jLabel7.setText("Duplica LdP ");
+        jToolBar3.add(jLabel7);
+
+        jLabel8.setText("Elimina LdP selezionate ");
+        jToolBar3.add(jLabel8);
 
         javax.swing.GroupLayout jp_linee_di_prodottoLayout = new javax.swing.GroupLayout(jp_linee_di_prodotto);
         jp_linee_di_prodotto.setLayout(jp_linee_di_prodottoLayout);
@@ -126,15 +163,15 @@ public class JP_Modelleria extends javax.swing.JPanel {
             .addGroup(jp_linee_di_prodottoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_linee_di_prodottoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE))
+                    .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 696, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jp_linee_di_prodottoLayout.setVerticalGroup(
             jp_linee_di_prodottoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_linee_di_prodottoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -247,6 +284,13 @@ public class JP_Modelleria extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
@@ -254,14 +298,15 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JToolBar jToolBar3;
+    private javax.swing.JLabel jl_cerca;
     private javax.swing.JPanel jp_catalogo;
     private javax.swing.JPanel jp_linee_di_prodotto;
     private javax.swing.JPanel jp_note;
     private javax.swing.JPanel jp_schede_tecniche;
     private javax.swing.JPanel jp_storico_operazioni;
     private javax.swing.JPanel jp_storico_ordini;
+    private javax.swing.JTextField jtf_cerca;
     // End of variables declaration//GEN-END:variables
 }
