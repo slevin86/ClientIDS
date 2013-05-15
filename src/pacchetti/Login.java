@@ -6,6 +6,7 @@ package pacchetti;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.gson.*;
 
 /**
  *
@@ -75,12 +76,41 @@ public class Login extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public class Utente {
+         public String id_utente;
+         public String nome;
+         public String cognome;
+         public String azienda;
+         public String cf_piva;
+         public String via;
+         public String citta;
+         public String email;
+         public String fax;
+         public String telefono;
+         public String cellulare;
+         public String note;
+         public String livello_utente;
+         public String password;
+    }
+     
+    public class Ute {
+         public String utente;
+    }
+
+    List list = new ArrayList();
+    Utente utente = new Utente();
+    list.add(utente);
+    
+   
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        RestUtente cliente = new RestUtente();
-        String jasone = new String();
-        ArrayList<String> lista = new ArrayList<String>();
-        lista = cliente.findAll_JSON(null);
-        System.out.println(lista);
+        Utente_Rest cliente = new Utente_Rest();
+        String ciao = cliente.findAll_JSON(String.class);
+        Gson gson = new GsonBuilder().create();
+        Utente utente = gson.fromJson(ciao, Utente.class);
+        gson.
+        System.out.println(utente.utente);
+        System.out.println(ciao);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void user_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_textActionPerformed
@@ -132,4 +162,5 @@ public class Login extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField user_text;
     // End of variables declaration//GEN-END:variables
+
 }

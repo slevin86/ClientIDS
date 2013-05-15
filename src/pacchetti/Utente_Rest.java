@@ -13,7 +13,7 @@ import com.sun.jersey.api.client.WebResource;
  * [rest.utente]<br>
  * USAGE:
  * <pre>
- *        RestUtente client = new RestUtente();
+ *        Utente_Rest client = new Utente_Rest();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -21,12 +21,12 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Davide
  */
-public class RestUtente {
+public class Utente_Rest {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/IDS/webresources";
+    private static final String BASE_URI = "http://localhost:8080/ServerIDS/webresources";
 
-    public RestUtente() {
+    public Utente_Rest() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
         client = Client.create(config);
         webResource = client.resource(BASE_URI).path("rest.utente");
