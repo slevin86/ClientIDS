@@ -76,7 +76,10 @@ public class JP_Login extends javax.swing.JPanel {
 
     private void jb_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_loginActionPerformed
         // TODO add your handling code here:
-        System.out.println(jtf_username.getText());
+        System.out.println(
+                "username: " + jtf_username.getText() + "\t" +
+                "password: " + jtf_password.getText() 
+                );
     }//GEN-LAST:event_jb_loginActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
