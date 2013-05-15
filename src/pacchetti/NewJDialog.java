@@ -59,10 +59,8 @@ public class NewJDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NewJerseyClient cliente = new NewJerseyClient();
-        String jasone = new String();
-        jasone = "[{\"nomeUnitaMisura\":\"terza\"}]";
-        cliente.create_JSON(jasone);
+       System.out.println("prova ActionPerformed");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
