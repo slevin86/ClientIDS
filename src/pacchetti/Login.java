@@ -7,6 +7,12 @@ package pacchetti;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.*;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 /**
  *
@@ -33,6 +39,9 @@ public class Login extends javax.swing.JDialog {
 
         jButton1 = new javax.swing.JButton();
         user_text = new javax.swing.JTextField();
+        pass_text = new javax.swing.JTextField();
+        loggato = new javax.swing.JLabel();
+        bottone_insert = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -49,6 +58,21 @@ public class Login extends javax.swing.JDialog {
             }
         });
 
+        pass_text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pass_textActionPerformed(evt);
+            }
+        });
+
+        loggato.setText("Loggato?");
+
+        bottone_insert.setText("Inserisci Dati");
+        bottone_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottone_insertActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -56,21 +80,34 @@ public class Login extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1))
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pass_text, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(user_text, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(user_text, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                        .addGap(170, 170, 170)
+                        .addComponent(loggato))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(72, 72, 72)
+                        .addComponent(bottone_insert)))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(68, 68, 68)
                 .addComponent(user_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(jButton1)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(pass_text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(loggato)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(bottone_insert))
+                .addGap(55, 55, 55))
         );
 
         pack();
@@ -93,13 +130,9 @@ public class Login extends javax.swing.JDialog {
          public String password;
     }
      
-    public class Ute {
-         public String utente;
-    }
-
-    List list = new ArrayList();
+   
     Utente utente = new Utente();
-    list.add(utente);
+    List lista = new ArrayList();
     
    
     
@@ -107,15 +140,50 @@ public class Login extends javax.swing.JDialog {
         Utente_Rest cliente = new Utente_Rest();
         String ciao = cliente.findAll_JSON(String.class);
         Gson gson = new GsonBuilder().create();
-        Utente utente = gson.fromJson(ciao, Utente.class);
-        gson.
-        System.out.println(utente.utente);
-        System.out.println(ciao);
+        
+        JSONObject jso;
+        try {
+            jso = new JSONObject(ciao);
+            JSONArray ja = jso.getJSONArray("utente");
+            for (int i = 0; i < ja.length(); i++) {
+               JSONObject jsonSection = ja.getJSONObject(i);
+               Utente utente_ins = gson.fromJson(jsonSection.toString(), Utente.class);
+               if (utente_ins.nome.equals(user_text.getText())) {
+                    if (utente_ins.cognome.equals(pass_text.getText()))
+                    loggato.setText("sei loggato");
+                    else
+                        loggato.setText("non sei loggato");
+               }
+               //lista.add(utente_ins);
+            }
+        } catch (JSONException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //Utente prova;
+        //prova = (Utente) lista.get(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void user_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_textActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_user_textActionPerformed
+
+    private void pass_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pass_textActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pass_textActionPerformed
+
+    private void bottone_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottone_insertActionPerformed
+        // TODO add your handling code here:
+        Utente_Rest cliente = new Utente_Rest();
+        String giasone = new String();
+        Utente inserire = new Utente();
+        inserire.cognome = pass_text.getText();
+        inserire.nome = user_text.getText();
+        Gson gsone = new GsonBuilder().create();
+        giasone = gsone.toJson(inserire);
+        System.out.println(giasone);
+        cliente.create_JSON(giasone);
+    }//GEN-LAST:event_bottone_insertActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,7 +227,10 @@ public class Login extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bottone_insert;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel loggato;
+    private javax.swing.JTextField pass_text;
     private javax.swing.JTextField user_text;
     // End of variables declaration//GEN-END:variables
 
