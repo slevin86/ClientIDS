@@ -6,6 +6,7 @@ package ui;
 
 import client.rest.UtenteClient;
 import com.google.gson.*;
+import java.util.logging.*;
 import org.codehaus.jettison.json.*;
 
 /**
@@ -33,8 +34,8 @@ public class JP_Login extends javax.swing.JPanel {
         jl_username = new javax.swing.JLabel();
         jtf_username = new javax.swing.JTextField();
         jl_password = new javax.swing.JLabel();
-        jtf_password = new javax.swing.JTextField();
         jb_login = new javax.swing.JButton();
+        jtf_password = new javax.swing.JPasswordField();
 
         jl_username.setText("Username");
 
@@ -47,6 +48,12 @@ public class JP_Login extends javax.swing.JPanel {
             }
         });
 
+        jtf_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_passwordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -56,13 +63,13 @@ public class JP_Login extends javax.swing.JPanel {
                 .addComponent(jl_username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtf_username, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jl_password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_login)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,8 +79,8 @@ public class JP_Login extends javax.swing.JPanel {
                     .addComponent(jl_username)
                     .addComponent(jtf_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jl_password)
-                    .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_login))
+                    .addComponent(jb_login)
+                    .addComponent(jtf_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -98,9 +105,9 @@ public class JP_Login extends javax.swing.JPanel {
     
     private void jb_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_loginActionPerformed
         // TODO add your handling code here:
+        int controllo = 0;
         UtenteClient client = new UtenteClient();
         String risposta = client.findAll_JSON(String.class);
-        //System.out.println(risposta_mirata);
         Gson gson = new GsonBuilder().create();
         JSONObject jso;
         try {
@@ -109,33 +116,33 @@ public class JP_Login extends javax.swing.JPanel {
             for (int i = 0; i < ja.length(); i++) {
                JSONObject jsonSection = ja.getJSONObject(i);
                Utente utente_ins = gson.fromJson(jsonSection.toString(), Utente.class);
-               if (utente_ins.username.equals(user_text.getText())) {
-                    if (utente_ins.password.equals(pass_text.getText()))
-                        loggato.setText("sei loggato");
+               if (utente_ins.username.equals(jtf_username.getText())) {
+                    i = ja.length();
+                    if (utente_ins.password.equals(jtf_password.getText()))
+                        controllo=1;
                     else
-                        loggato.setText("non sei loggato");
+                        controllo=2;
                }
-               //lista.add(utente_ins);
+               else
+                    controllo=3;
             }
-            //System.out.println(utente_ins.username);
+            System.out.println(controllo);
         }
         catch (JSONException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JP_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
         client.close();
-        //Utente prova;
-        //prova = (Utente) lista.get(0);
-        System.out.println(
-                "username: " + jtf_username.getText() + "\t" +
-                "password: " + jtf_password.getText() 
-                );
     }//GEN-LAST:event_jb_loginActionPerformed
+
+    private void jtf_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_passwordActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jb_login;
     private javax.swing.JLabel jl_password;
     private javax.swing.JLabel jl_username;
-    private javax.swing.JTextField jtf_password;
+    private javax.swing.JPasswordField jtf_password;
     private javax.swing.JTextField jtf_username;
     // End of variables declaration//GEN-END:variables
 }

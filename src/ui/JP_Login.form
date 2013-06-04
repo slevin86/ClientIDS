@@ -21,13 +21,13 @@
               <Component id="jl_username" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jtf_username" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jl_password" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jtf_password" min="-2" pref="120" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jtf_password" min="-2" pref="110" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jb_login" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -39,8 +39,8 @@
                   <Component id="jl_username" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtf_username" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_password" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtf_password" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jb_login" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jtf_password" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -60,14 +60,17 @@
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jtf_password">
-    </Component>
     <Component class="javax.swing.JButton" name="jb_login">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_loginActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jtf_password">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtf_passwordActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
