@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.awt.event.ItemEvent;
+
 /**
  *
  * @author giovanni
@@ -42,11 +44,16 @@ public class JP_Logout extends javax.swing.JPanel {
 
         jl_addetto.setText("Addetto");
 
-        jtf_nome.setText("jTextField1");
+        jtf_nome.setText("Nome");
 
-        jtf_cognome.setText("jTextField2");
+        jtf_cognome.setText("Cognome");
 
         jcb_addetto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modelleria", "Produzione"}));
+        jcb_addetto.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_addettoItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -84,6 +91,16 @@ public class JP_Logout extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jcb_addettoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_addettoItemStateChanged
+        // TODO add your handling code here:
+               
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            //System.out.println(ItemEvent.SELECTED);
+            System.out.println(jcb_addetto.getSelectedItem());
+        }
+    }//GEN-LAST:event_jcb_addettoItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jcb_addetto;
