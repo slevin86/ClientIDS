@@ -27,24 +27,14 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jp_schede_tecniche = new javax.swing.JPanel();
-        jToolBar1 = new javax.swing.JToolBar();
-        jb_st_nuova = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jl_cerca = new javax.swing.JLabel();
-        jtf_cerca = new javax.swing.JTextField();
         jp_linee_di_prodotto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jToolBar3 = new javax.swing.JToolBar();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jToolBar2 = new javax.swing.JToolBar();
+        jb_st_nuova1 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jp_catalogo = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -66,89 +56,16 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable7 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-
-        jToolBar1.setFloatable(false);
-        jToolBar1.setRollover(true);
-
-        jb_st_nuova.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_nuova_32x32.png"))); // NOI18N
-        jb_st_nuova.setFocusable(false);
-        jb_st_nuova.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jb_st_nuova.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jb_st_nuova);
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_duplica_32x32.png"))); // NOI18N
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton3);
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_modifica_32x32.png"))); // NOI18N
-        jButton6.setFocusable(false);
-        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton6);
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_cancella_32x32.png"))); // NOI18N
-        jButton5.setToolTipText("Elimina schede tecniche selezionate");
-        jButton5.setFocusable(false);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton5);
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Linea di Prodotto", "Stato", "Genere", "Sel"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-
-        jl_cerca.setText("Cerca");
-
-        javax.swing.GroupLayout jp_schede_tecnicheLayout = new javax.swing.GroupLayout(jp_schede_tecniche);
-        jp_schede_tecniche.setLayout(jp_schede_tecnicheLayout);
-        jp_schede_tecnicheLayout.setHorizontalGroup(
-            jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
-                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jl_cerca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtf_cerca, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jp_schede_tecnicheLayout.setVerticalGroup(
-            jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jl_cerca)
-                        .addComponent(jtf_cerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Schede Tecniche", jp_schede_tecniche);
+        jp_schede_tecniche = new javax.swing.JPanel();
+        jToolBar1 = new javax.swing.JToolBar();
+        jb_st_nuova = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jl_cerca = new javax.swing.JLabel();
+        jtf_cerca = new javax.swing.JTextField();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,20 +88,36 @@ public class JP_Modelleria extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jToolBar3.setFloatable(false);
-        jToolBar3.setRollover(true);
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
 
-        jLabel5.setText("Nuova LdP ");
-        jToolBar3.add(jLabel5);
+        jb_st_nuova1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_nuova_32x32.png"))); // NOI18N
+        jb_st_nuova1.setToolTipText("Crea una nuova linea di prodotto");
+        jb_st_nuova1.setFocusable(false);
+        jb_st_nuova1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_st_nuova1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jb_st_nuova1);
 
-        jLabel6.setText("Modifica Ldp ");
-        jToolBar3.add(jLabel6);
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_modifica_32x32.png"))); // NOI18N
+        jButton6.setToolTipText("Apri e modifica la linea di prodotto selezionata");
+        jButton6.setFocusable(false);
+        jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton6.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton6);
 
-        jLabel7.setText("Duplica LdP ");
-        jToolBar3.add(jLabel7);
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_duplica_32x32.png"))); // NOI18N
+        jButton7.setToolTipText("Duplica la linea di prodotto selezionata");
+        jButton7.setFocusable(false);
+        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton7);
 
-        jLabel8.setText("Elimina LdP selezionate ");
-        jToolBar3.add(jLabel8);
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_cancella_32x32.png"))); // NOI18N
+        jButton8.setToolTipText("Elimina le linea di prodotto selezionate");
+        jButton8.setFocusable(false);
+        jButton8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton8.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar2.add(jButton8);
 
         javax.swing.GroupLayout jp_linee_di_prodottoLayout = new javax.swing.GroupLayout(jp_linee_di_prodotto);
         jp_linee_di_prodotto.setLayout(jp_linee_di_prodottoLayout);
@@ -193,15 +126,17 @@ public class JP_Modelleria extends javax.swing.JPanel {
             .addGroup(jp_linee_di_prodottoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jp_linee_di_prodottoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToolBar3, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
+                    .addGroup(jp_linee_di_prodottoLayout.createSequentialGroup()
+                        .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jp_linee_di_prodottoLayout.setVerticalGroup(
             jp_linee_di_prodottoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_linee_di_prodottoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -469,6 +404,96 @@ public class JP_Modelleria extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Utenti", jPanel1);
 
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jb_st_nuova.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_nuova_32x32.png"))); // NOI18N
+        jb_st_nuova.setToolTipText("Crea una nuova scheda tecnica");
+        jb_st_nuova.setFocusable(false);
+        jb_st_nuova.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_st_nuova.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jb_st_nuova);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_modifica_32x32.png"))); // NOI18N
+        jButton4.setToolTipText("Apri e modifica la scheda tecnica selezionata");
+        jButton4.setFocusable(false);
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton4);
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_duplica_32x32.png"))); // NOI18N
+        jButton3.setToolTipText("Duplica la scheda tecnica selezionata");
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton3);
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_cancella_32x32.png"))); // NOI18N
+        jButton5.setToolTipText("Elimina le schede tecniche selezionate");
+        jButton5.setFocusable(false);
+        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton5);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Linea di Prodotto", "Stato", "Genere", "Sel"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        jl_cerca.setText("Cerca");
+
+        javax.swing.GroupLayout jp_schede_tecnicheLayout = new javax.swing.GroupLayout(jp_schede_tecniche);
+        jp_schede_tecniche.setLayout(jp_schede_tecnicheLayout);
+        jp_schede_tecnicheLayout.setHorizontalGroup(
+            jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE)
+                    .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jl_cerca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jtf_cerca)))
+                .addContainerGap())
+        );
+        jp_schede_tecnicheLayout.setVerticalGroup(
+            jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
+                .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_schede_tecnicheLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jp_schede_tecnicheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jl_cerca)
+                            .addComponent(jtf_cerca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_schede_tecnicheLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Schede Tecniche", jp_schede_tecniche);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -491,12 +516,11 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -518,8 +542,9 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JToolBar jToolBar3;
+    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jb_st_nuova;
+    private javax.swing.JButton jb_st_nuova1;
     private javax.swing.JLabel jl_cerca;
     private javax.swing.JPanel jp_catalogo;
     private javax.swing.JPanel jp_linee_di_prodotto;
