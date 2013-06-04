@@ -5,7 +5,7 @@
 package ui;
 
 import client.rest.UtenteClient;
-import com.google.gson.*;
+//import com.google.gson.*;
 import org.codehaus.jettison.json.*;
 
 /**
