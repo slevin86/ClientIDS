@@ -4,6 +4,10 @@
  */
 package ui;
 
+import client.rest.UtenteClient;
+import com.google.gson.*;
+import org.codehaus.jettison.json.*;
+
 /**
  *
  * @author giovanni
@@ -74,8 +78,53 @@ public class JP_Login extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public class Utente {
+         public String id_utente;
+         public String nome;
+         public String cognome;
+         public String azienda;
+         public String cf_piva;
+         public String via;
+         public String citta;
+         public String email;
+         public String fax;
+         public String telefono;
+         public String cellulare;
+         public String note;
+         public String livello_utente;
+         public String password;
+         public String username;
+    }
+    
     private void jb_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_loginActionPerformed
         // TODO add your handling code here:
+        UtenteClient client = new UtenteClient();
+        String risposta = client.findAll_JSON(String.class);
+        //System.out.println(risposta_mirata);
+        Gson gson = new GsonBuilder().create();
+        JSONObject jso;
+        try {
+            jso = new JSONObject(risposta);
+            JSONArray ja = jso.getJSONArray("utente");
+            for (int i = 0; i < ja.length(); i++) {
+               JSONObject jsonSection = ja.getJSONObject(i);
+               Utente utente_ins = gson.fromJson(jsonSection.toString(), Utente.class);
+               if (utente_ins.username.equals(user_text.getText())) {
+                    if (utente_ins.password.equals(pass_text.getText()))
+                        loggato.setText("sei loggato");
+                    else
+                        loggato.setText("non sei loggato");
+               }
+               //lista.add(utente_ins);
+            }
+            //System.out.println(utente_ins.username);
+        }
+        catch (JSONException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        client.close();
+        //Utente prova;
+        //prova = (Utente) lista.get(0);
         System.out.println(
                 "username: " + jtf_username.getText() + "\t" +
                 "password: " + jtf_password.getText() 
