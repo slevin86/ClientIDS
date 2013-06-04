@@ -67,6 +67,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jTable7 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         jLabel2.setText("Nuova ST ");
@@ -157,6 +158,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jToolBar3.setFloatable(false);
         jToolBar3.setRollover(true);
 
         jLabel5.setText("Nuova LdP ");
