@@ -33,9 +33,6 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jl_cerca = new javax.swing.JLabel();
@@ -97,15 +94,6 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton5);
-
-        jLabel3.setText("Modifica ST ");
-        jToolBar1.add(jLabel3);
-
-        jLabel4.setText("Duplica ");
-        jToolBar1.add(jLabel4);
-
-        jLabel1.setText("Elimina ST selezionate");
-        jToolBar1.add(jLabel1);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -505,9 +493,6 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
