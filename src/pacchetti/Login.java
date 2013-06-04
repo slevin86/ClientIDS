@@ -7,7 +7,6 @@ package pacchetti;
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.*;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.codehaus.jettison.json.JSONArray;
@@ -128,6 +127,7 @@ public class Login extends javax.swing.JDialog {
          public String note;
          public String livello_utente;
          public String password;
+         public String username;
     }
      
    
@@ -137,29 +137,32 @@ public class Login extends javax.swing.JDialog {
    
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Utente_Rest cliente = new Utente_Rest();
-        String ciao = cliente.findAll_JSON(String.class);
+        Utente_Client client = new Utente_Client();
+        String risposta = client.findAll_JSON(String.class);
+        String risposta_mirata = client.find_JSON(String.class,"3");
+        //System.out.println(risposta_mirata);
         Gson gson = new GsonBuilder().create();
-        
         JSONObject jso;
         try {
-            jso = new JSONObject(ciao);
+            jso = new JSONObject(risposta);
             JSONArray ja = jso.getJSONArray("utente");
             for (int i = 0; i < ja.length(); i++) {
                JSONObject jsonSection = ja.getJSONObject(i);
                Utente utente_ins = gson.fromJson(jsonSection.toString(), Utente.class);
-               if (utente_ins.nome.equals(user_text.getText())) {
-                    if (utente_ins.cognome.equals(pass_text.getText()))
-                    loggato.setText("sei loggato");
+               if (utente_ins.username.equals(user_text.getText())) {
+                    if (utente_ins.password.equals(pass_text.getText()))
+                        loggato.setText("sei loggato");
                     else
                         loggato.setText("non sei loggato");
                }
                //lista.add(utente_ins);
             }
-        } catch (JSONException ex) {
+            //System.out.println(utente_ins.username);
+        } 
+        catch (JSONException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        client.close();
         //Utente prova;
         //prova = (Utente) lista.get(0);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -174,14 +177,13 @@ public class Login extends javax.swing.JDialog {
 
     private void bottone_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottone_insertActionPerformed
         // TODO add your handling code here:
-        Utente_Rest cliente = new Utente_Rest();
+        Utente_Client cliente = new Utente_Client();
         String giasone = new String();
         Utente inserire = new Utente();
         inserire.cognome = pass_text.getText();
         inserire.nome = user_text.getText();
         Gson gsone = new GsonBuilder().create();
         giasone = gsone.toJson(inserire);
-        System.out.println(giasone);
         cliente.create_JSON(giasone);
     }//GEN-LAST:event_bottone_insertActionPerformed
 
