@@ -37,6 +37,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tableModel_NoDB1 = new table.model.TableModel_NoDB();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jp_linee_di_prodotto = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -70,11 +71,11 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jp_schede_tecniche = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jb_st_nuova = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jb_st_open = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jt_st = new javax.swing.JTable();
         jl_cerca = new javax.swing.JLabel();
         jtf_cerca = new javax.swing.JTextField();
 
@@ -194,7 +195,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
                     .addGroup(jp_catalogoLayout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 799, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jp_catalogoLayout.setVerticalGroup(
@@ -248,7 +249,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_storico_operazioniLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -355,7 +356,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
             jp_noteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jp_noteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 672, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
                 .addGap(141, 141, 141))
         );
         jp_noteLayout.setVerticalGroup(
@@ -405,7 +406,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
                         .addGap(351, 351, 351)
                         .addComponent(jButton2))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,12 +432,17 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jb_st_nuova.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jb_st_nuova);
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_modifica_32x32.png"))); // NOI18N
-        jButton4.setToolTipText("Apri e modifica la scheda tecnica selezionata");
-        jButton4.setFocusable(false);
-        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(jButton4);
+        jb_st_open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_modifica_32x32.png"))); // NOI18N
+        jb_st_open.setToolTipText("Apri e modifica la scheda tecnica selezionata");
+        jb_st_open.setFocusable(false);
+        jb_st_open.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jb_st_open.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jb_st_open.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_st_openActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jb_st_open);
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/st_duplica_32x32.png"))); // NOI18N
         jButton3.setToolTipText("Duplica la scheda tecnica selezionata");
@@ -452,26 +458,14 @@ public class JP_Modelleria extends javax.swing.JPanel {
         jButton5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton5);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nome", "Linea di Prodotto", "Stato", "Genere", "Sel"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
+        jt_st.setModel(tableModel_NoDB1);
+        jScrollPane2.setViewportView(jt_st);
+        jt_st.getColumnModel().getColumn(0).setHeaderValue("ID");
+        jt_st.getColumnModel().getColumn(1).setHeaderValue("First Name");
+        jt_st.getColumnModel().getColumn(2).setHeaderValue("Last Name");
+        jt_st.getColumnModel().getColumn(3).setHeaderValue("Sport");
+        jt_st.getColumnModel().getColumn(4).setHeaderValue("# of Years");
+        jt_st.getColumnModel().getColumn(5).setHeaderValue("Vegetarian");
 
         jl_cerca.setText("Cerca");
 
@@ -534,11 +528,16 @@ public class JP_Modelleria extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
+    private void jb_st_openActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_st_openActionPerformed
+        // TODO add your handling code here:
+        System.out.println(tableModel_NoDB1.getRowId(jt_st.getSelectedRow()));
+        
+    }//GEN-LAST:event_jb_st_openActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -555,7 +554,6 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
@@ -567,6 +565,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JButton jb_st_nuova;
     private javax.swing.JButton jb_st_nuova1;
+    private javax.swing.JButton jb_st_open;
     private javax.swing.JLabel jl_cerca;
     private javax.swing.JPanel jp_catalogo;
     private javax.swing.JPanel jp_linee_di_prodotto;
@@ -574,6 +573,8 @@ public class JP_Modelleria extends javax.swing.JPanel {
     private javax.swing.JPanel jp_schede_tecniche;
     private javax.swing.JPanel jp_storico_operazioni;
     private javax.swing.JPanel jp_storico_ordini;
+    private javax.swing.JTable jt_st;
     private javax.swing.JTextField jtf_cerca;
+    private table.model.TableModel_NoDB tableModel_NoDB1;
     // End of variables declaration//GEN-END:variables
 }
