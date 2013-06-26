@@ -6,6 +6,7 @@ package ui;
 
 import client.rest.UtenteClient;
 import com.google.gson.*;
+import java.util.Arrays;
 import java.util.logging.*;
 import org.codehaus.jettison.json.*;
 
@@ -84,30 +85,13 @@ public class JP_Login extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    public class Utente {
-         public String id_utente;
-         public String nome;
-         public String cognome;
-         public String azienda;
-         public String cf_piva;
-         public String via;
-         public String citta;
-         public String email;
-         public String fax;
-         public String telefono;
-         public String cellulare;
-         public String note;
-         public String livello_utente;
-         public String password;
-         public String username;
-    }
     
     private void jb_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_loginActionPerformed
         // TODO add your handling code here:
         int controllo = 0;
         UtenteClient client = new UtenteClient();
         String risposta = client.findAll_JSON(String.class);
+        risposta = "{\"utente\":" + risposta + "}";
         Gson gson = new GsonBuilder().create();
         JSONObject jso;
         try {
@@ -118,7 +102,9 @@ public class JP_Login extends javax.swing.JPanel {
                Utente utente_ins = gson.fromJson(jsonSection.toString(), Utente.class);
                if (utente_ins.username.equals(jtf_username.getText())) {
                     i = ja.length();
-                    if (utente_ins.password.equals(jtf_password.getText()))
+                    char[] pw = jtf_password.getPassword();
+                    char[] pw_user = utente_ins.password.toCharArray();
+                    if (Arrays.equals(pw_user, pw))
                         controllo=1;
                     else
                         controllo=2;

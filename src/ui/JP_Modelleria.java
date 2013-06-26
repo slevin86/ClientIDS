@@ -4,6 +4,21 @@
  */
 package ui;
 
+import client.rest.SchedaTecnicaRest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.awt.List;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import org.codehaus.jettison.json.JSONArray;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
 /**
  *
  * @author giovanni
@@ -15,7 +30,7 @@ public class JP_Modelleria extends javax.swing.JPanel {
      */
     public class SchedaTecnica {
          public String idSchedaTecnica;
-         public String foto_modella;
+         public String foto_modello;
          public String stato;
          public String foto_campione;
          public String genere;
@@ -472,6 +487,11 @@ public class JP_Modelleria extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(jTable2);
+        jTable2.getColumnModel().getColumn(0).setHeaderValue("Nome");
+        jTable2.getColumnModel().getColumn(1).setHeaderValue("Linea di Prodotto");
+        jTable2.getColumnModel().getColumn(2).setHeaderValue("Stato");
+        jTable2.getColumnModel().getColumn(3).setHeaderValue("Genere");
+        jTable2.getColumnModel().getColumn(4).setHeaderValue("Sel");
 
         jl_cerca.setText("Cerca");
 
@@ -531,7 +551,30 @@ public class JP_Modelleria extends javax.swing.JPanel {
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
-        
+        SchedaTecnicaRest client = new SchedaTecnicaRest();
+        String risposta = client.findAll_JSON(String.class);
+        Gson gson = new GsonBuilder().create();
+        DefaultTableModel modello = new DefaultTableModel();
+        Object[][] oggetto = new Object[9][9];
+        //Vector<SchedaTecnica> vettore = new Vector<>(10);
+        SchedaTecnica dati_ins;
+        JSONObject jso;
+        try {
+            jso = new JSONObject(risposta);
+            JSONArray ja = jso.getJSONArray("schedatecnica");
+            for (int i = 0; i < ja.length(); i++) {
+               JSONObject jsonSection = ja.getJSONObject(i);
+               dati_ins = gson.fromJson(jsonSection.toString(), SchedaTecnica.class);
+                //oggetto = gson.fromJson(jsonSection.toString(), oggetto.getClass());
+                //vettore.add(dati_ins);
+            }
+            //jTable2.setModel(modello);
+            //System.out.println(vettore.get(1).nome);
+        }
+        catch (JSONException ex) {
+            Logger.getLogger(JP_Modelleria.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        client.close();
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
